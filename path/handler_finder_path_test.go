@@ -5,10 +5,10 @@ import (
 	"testing"
 
 	. "github.com/bborbe/assert"
-	"github.com/bborbe/handler_finder"
 	"github.com/bborbe/http/mock"
-	"github.com/bborbe/server/handler/mux"
-	"github.com/bborbe/server/handler/static"
+	"github.com/bborbe/http_handler/mux"
+	"github.com/bborbe/http_handler/static"
+	"github.com/bborbe/http_handler_finder"
 )
 
 func TestPathImplementsHandlerFinder(t *testing.T) {

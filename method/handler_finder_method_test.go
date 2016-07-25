@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	. "github.com/bborbe/assert"
-	"github.com/bborbe/handler_finder"
+	"github.com/bborbe/http_handler_finder"
 )
 
 func TestImplementsHandlerFinder(t *testing.T) {

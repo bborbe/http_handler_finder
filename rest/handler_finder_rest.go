@@ -3,8 +3,8 @@ package rest
 import (
 	"net/http"
 
-	handler_finder_method "github.com/bborbe/handler_finder/method"
-	handler_finder_part "github.com/bborbe/handler_finder/part"
+	handler_finder_method "github.com/bborbe/http_handler_finder/method"
+	handler_finder_part "github.com/bborbe/http_handler_finder/part"
 )
 
 type RestHandlerFinder interface {

@@ -3,8 +3,8 @@ package method
 import (
 	"net/http"
 
-	"github.com/bborbe/handler_finder"
-	"github.com/bborbe/handler_finder/dummy"
+	"github.com/bborbe/http_handler_finder"
+	"github.com/bborbe/http_handler_finder/dummy"
 )
 
 type handlerFinderMethod struct {
