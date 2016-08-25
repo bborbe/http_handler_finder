@@ -1,21 +1,21 @@
 hash: c729216d35868000f3c30f7601b16dd8a7b053c5210d5f6ec046ea439931ef06
-updated: 2016-08-24T22:52:18.863916937+02:00
+updated: 2016-08-25T20:07:28.03544583+02:00
 imports:
 - name: github.com/bborbe/io
-  version: 56d91e8345e4418981a56bc4b8466b4096138f08
+  version: a92503d8d6377ff0e8b24ad2007cc83546a50817
   subpackages:
   - buffered_writer
 - name: github.com/bborbe/log
   version: 0250bb5b2e2bd833cb9a47333c28aa46751cdbfe
 testImports:
 - name: github.com/bborbe/assert
-  version: cd6d0ec67c40ced8ca6cf72773b9e4b44420fbd2
+  version: f767bd2fffab5a86d5a887e2415d399e8aade8bf
 - name: github.com/bborbe/http
-  version: ba3b05652664169dbef4c3c1c326db4929b0cec2
+  version: 1a08a16fd2cc75228b32afadd7126f7372cb4780
   subpackages:
   - mock
 - name: github.com/bborbe/http_handler
-  version: 9157ff259dd5b969462691e14184e2fb71ba8512
+  version: 88aeecad6b6b07bc2ec369c4e147b7081310c726
   subpackages:
   - mux
   - static
