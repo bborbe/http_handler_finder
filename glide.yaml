@@ -1,6 +1,6 @@
 package: github.com/bborbe/http_handler_finder
 import:
-- package: github.com/bborbe/log
+- package: github.com/golang/glog
 testImport:
 - package: github.com/bborbe/assert
 - package: github.com/bborbe/http

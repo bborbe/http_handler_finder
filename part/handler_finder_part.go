@@ -6,7 +6,7 @@ import (
 
 	"github.com/bborbe/http_handler_finder"
 	"github.com/bborbe/http_handler_finder/dummy"
-	"github.com/bborbe/log"
+	"github.com/golang/glog"
 )
 
 type handlerFinderPart struct {
@@ -19,8 +19,6 @@ type PartHandlerFinder interface {
 	RegisterHandler(part string, handler http.Handler)
 	RegisterHandlerFinder(part string, handlerFinder handler_finder.HandlerFinder)
 }
-
-var logger = log.DefaultLogger
 
 func New(prefix string) *handlerFinderPart {
 	h := new(handlerFinderPart)
@@ -51,7 +49,7 @@ func (h *handlerFinderPart) FindHandlerFinder(request *http.Request) handler_fin
 
 func (h *handlerFinderPart) FindHandlerByRequestUri(requestUri string) handler_finder.HandlerFinder {
 	rest := requestUri[len(h.prefix):]
-	logger.Tracef("requestUri: %s prefix: %s => rest: %s", requestUri, h.prefix, rest)
+	glog.V(4).Infof("requestUri: %s prefix: %s => rest: %s", requestUri, h.prefix, rest)
 	if len(rest) == 0 {
 		return h.handler[rest]
 	}
