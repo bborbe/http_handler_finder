@@ -11,7 +11,7 @@ import (
 )
 
 func TestImplementsHandlerFinder(t *testing.T) {
-	hf := New(static.NewHandlerStaticContent("test"))
+	hf := New(static.New("test"))
 	var handlerFinder *handler_finder.HandlerFinder
 	err := AssertThat(hf, Implements(handlerFinder).Message("check type"))
 	if err != nil {
@@ -20,7 +20,7 @@ func TestImplementsHandlerFinder(t *testing.T) {
 }
 
 func TestFindHandlerNotNil(t *testing.T) {
-	hf := New(static.NewHandlerStaticContent("test"))
+	hf := New(static.New("test"))
 	h := hf.FindHandler(&http.Request{})
 	err := AssertThat(h, NotNilValue())
 	if err != nil {

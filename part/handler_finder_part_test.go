@@ -31,7 +31,7 @@ func TestRoot(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	hf.RegisterHandler("/api", static.NewHandlerStaticContent("/api"))
+	hf.RegisterHandler("/api", static.New("/api"))
 	{
 		request, err := server_mock.NewHttpRequestMock("http://www.example.com/api")
 		if err != nil {
@@ -80,7 +80,7 @@ func TestSub(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	hf.RegisterHandler("/test", static.NewHandlerStaticContent("/test"))
+	hf.RegisterHandler("/test", static.New("/test"))
 	{
 		request, err := server_mock.NewHttpRequestMock("http://www.example.com/api/test")
 		if err != nil {
@@ -118,8 +118,8 @@ func TestSub(t *testing.T) {
 
 func TestEmpty(t *testing.T) {
 	hf := New("/api/v1/task")
-	hf.RegisterHandler("", static.NewHandlerStaticContent(""))
-	hf.RegisterHandler("/", static.NewHandlerStaticContent("/"))
+	hf.RegisterHandler("", static.New(""))
+	hf.RegisterHandler("/", static.New("/"))
 	{
 		request, err := server_mock.NewHttpRequestMock("http://www.example.com/api/v1/task")
 		if err != nil {
@@ -168,7 +168,7 @@ func TestSubWithoutSlash(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	hf.RegisterHandler("world", static.NewHandlerStaticContent("world"))
+	hf.RegisterHandler("world", static.New("world"))
 	{
 		request, err := server_mock.NewHttpRequestMock("http://www.example.com/helloworld")
 		if err != nil {
@@ -196,7 +196,7 @@ func TestSubWithoutSlash(t *testing.T) {
 func TestWithQuestionMark(t *testing.T) {
 	content := "TestHandlerContent"
 	hf := New("/api")
-	hf.RegisterHandler("/test", static.NewHandlerStaticContent(content))
+	hf.RegisterHandler("/test", static.New(content))
 	{
 		request, err := server_mock.NewHttpRequestMock("http://www.example.com/api/test")
 		if err != nil {
@@ -236,7 +236,7 @@ func TestWithQuestionMark(t *testing.T) {
 func TestWithQuestionMarkWithoutSlash(t *testing.T) {
 	content := "TestHandlerContent"
 	hf := New("/hello")
-	hf.RegisterHandler("world", static.NewHandlerStaticContent(content))
+	hf.RegisterHandler("world", static.New(content))
 	{
 		request, err := server_mock.NewHttpRequestMock("http://www.example.com/helloworld")
 		if err != nil {

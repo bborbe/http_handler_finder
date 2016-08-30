@@ -1,17 +1,17 @@
 hash: 06ef58111a02ae1638fae070b501c447873277a77192b24faa0759bf4ccb122a
-updated: 2016-08-29T00:11:40.723865322+02:00
+updated: 2016-08-30T10:10:17.728460601+02:00
 imports:
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 testImports:
 - name: github.com/bborbe/assert
-  version: 639eac9a24e3c01472758f3c79452b8517bc29f6
+  version: 2db035a4c0870f6f48d1955f7b9542f9dbd4fb64
 - name: github.com/bborbe/http
-  version: 610817d35e311dab1adfecb8b048aa019736a58e
+  version: addca5fc2e2de1bef39a64990873806e7fc9c0a9
   subpackages:
   - mock
 - name: github.com/bborbe/http_handler
-  version: 15d45afac61e92038e5c8425d4d4586f34e3c445
+  version: 392429869e2913f7b549f51795413e6e3a0f04ac
   subpackages:
   - mux
   - static

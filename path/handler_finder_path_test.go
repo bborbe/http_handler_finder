@@ -22,7 +22,7 @@ func TestPathImplementsHandlerFinder(t *testing.T) {
 
 func TestNewMuxHandler(t *testing.T) {
 	var handlerFinder handler_finder.HandlerFinder
-	m := mux.NewMuxHandler(handlerFinder, static.NewHandlerStaticContentReturnCode("not found", http.StatusNotFound))
+	m := mux.New(handlerFinder, static.NewWithReturnCode("not found", http.StatusNotFound))
 	var expect *http.Handler
 	err := AssertThat(m, Implements(expect).Message("check type"))
 	if err != nil {
@@ -32,7 +32,7 @@ func TestNewMuxHandler(t *testing.T) {
 
 func TestNotHandlerFound(t *testing.T) {
 	handlerFinder := New()
-	m := mux.NewMuxHandler(handlerFinder, static.NewHandlerStaticContentReturnCode("not found", http.StatusNotFound))
+	m := mux.New(handlerFinder, static.NewWithReturnCode("not found", http.StatusNotFound))
 	responseWriter := mock.NewHttpResponseWriterMock()
 	request, err := mock.NewHttpRequestMock("http://www.example.com")
 	if err != nil {
@@ -47,9 +47,9 @@ func TestNotHandlerFound(t *testing.T) {
 
 func TestHandlerFound(t *testing.T) {
 	handlerFinder := New()
-	handlerFinder.RegisterHandler("/", static.NewHandlerStaticContent("/"))
-	handlerFinder.RegisterHandler("/test", static.NewHandlerStaticContent("/test"))
-	m := mux.NewMuxHandler(handlerFinder, static.NewHandlerStaticContentReturnCode("not found", http.StatusNotFound))
+	handlerFinder.RegisterHandler("/", static.New("/"))
+	handlerFinder.RegisterHandler("/test", static.New("/test"))
+	m := mux.New(handlerFinder, static.NewWithReturnCode("not found", http.StatusNotFound))
 	{
 		responseWriter := mock.NewHttpResponseWriterMock()
 		request, err := mock.NewHttpRequestMock("http://www.example.com/")

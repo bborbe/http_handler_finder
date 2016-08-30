@@ -22,12 +22,12 @@ func TestImplementsRestHandlerFinder(t *testing.T) {
 
 func TestImplementsHandlerFinder(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	var handler *handler_finder.HandlerFinder
 	err := AssertThat(hf, Implements(handler).Message("check type"))
 	if err != nil {
@@ -37,12 +37,12 @@ func TestImplementsHandlerFinder(t *testing.T) {
 
 func TestGet(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	r := &http.Request{Method: "GET", RequestURI: "/test/123"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
@@ -59,12 +59,12 @@ func TestGet(t *testing.T) {
 
 func TestList(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	r := &http.Request{Method: "GET", RequestURI: "/test"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
@@ -81,12 +81,12 @@ func TestList(t *testing.T) {
 
 func TestListNoMethod(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	r := &http.Request{RequestURI: "/test"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
@@ -103,12 +103,12 @@ func TestListNoMethod(t *testing.T) {
 
 func TestCreate(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	r := &http.Request{Method: "POST", RequestURI: "/test"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
@@ -125,12 +125,12 @@ func TestCreate(t *testing.T) {
 
 func TestUpdate(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	r := &http.Request{Method: "PUT", RequestURI: "/test/123"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
@@ -147,12 +147,12 @@ func TestUpdate(t *testing.T) {
 
 func TestPatch(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	r := &http.Request{Method: "PATCH", RequestURI: "/test/123"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
@@ -169,12 +169,12 @@ func TestPatch(t *testing.T) {
 
 func TestDelete(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterCreateHandler(static.NewHandlerStaticContent("create"))
-	hf.RegisterGetHandler(static.NewHandlerStaticContent("get"))
-	hf.RegisterDeleteHandler(static.NewHandlerStaticContent("delete"))
-	hf.RegisterUpdateHandler(static.NewHandlerStaticContent("update"))
-	hf.RegisterListHandler(static.NewHandlerStaticContent("list"))
-	hf.RegisterPatchHandler(static.NewHandlerStaticContent("patch"))
+	hf.RegisterCreateHandler(static.New("create"))
+	hf.RegisterGetHandler(static.New("get"))
+	hf.RegisterDeleteHandler(static.New("delete"))
+	hf.RegisterUpdateHandler(static.New("update"))
+	hf.RegisterListHandler(static.New("list"))
+	hf.RegisterPatchHandler(static.New("patch"))
 	r := &http.Request{Method: "DELETE", RequestURI: "/test/123"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
@@ -191,7 +191,7 @@ func TestDelete(t *testing.T) {
 
 func TestRegisterCustomerHandler(t *testing.T) {
 	hf := New("/test")
-	hf.RegisterHandler("POST", "/verify", static.NewHandlerStaticContent("verify"))
+	hf.RegisterHandler("POST", "/verify", static.New("verify"))
 	r := &http.Request{Method: "POST", RequestURI: "/test/verify"}
 	h := hf.FindHandler(r)
 	err := AssertThat(h, NotNilValue())
