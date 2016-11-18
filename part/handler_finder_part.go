@@ -44,7 +44,7 @@ func (h *handlerFinderPart) FindHandler(request *http.Request) http.Handler {
 }
 
 func (h *handlerFinderPart) FindHandlerFinder(request *http.Request) handler_finder.HandlerFinder {
-	return h.FindHandlerByRequestUri(request.RequestURI)
+	return h.FindHandlerByRequestUri(request.URL.Path)
 }
 
 func (h *handlerFinderPart) FindHandlerByRequestUri(requestUri string) handler_finder.HandlerFinder {

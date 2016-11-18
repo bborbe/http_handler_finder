@@ -14,5 +14,5 @@ func (h handlerFinderPath) RegisterHandler(path string, handler http.Handler) {
 }
 
 func (h handlerFinderPath) FindHandler(request *http.Request) http.Handler {
-	return h[request.RequestURI]
+	return h[request.URL.Path]
 }
